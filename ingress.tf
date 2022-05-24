@@ -2,6 +2,9 @@ resource "kubernetes_ingress" "jenkins" {
   metadata {
     name = "jenkins-ingress"
     namespace = kubernetes_namespace.jenkins.metadata.0.name
+    annotations = {
+      "kubernetes.io/ingress.class" = "nginx"
+    }
   }
 
   spec {
@@ -25,6 +28,9 @@ resource "kubernetes_ingress" "nexus" {
   metadata {
     name = "nexus-ingress"
     namespace = kubernetes_namespace.nexus.metadata.0.name
+    annotations = {
+      "kubernetes.io/ingress.class" = "nginx"
+    }
   }
   spec {
     rule {
@@ -47,6 +53,9 @@ resource "kubernetes_ingress" "localhost" {
   metadata {
     name = "localhost-ingress"
     namespace = "default"
+    annotations = {
+      "kubernetes.io/ingress.class" = "nginx"
+    }
   }
 
   spec {
