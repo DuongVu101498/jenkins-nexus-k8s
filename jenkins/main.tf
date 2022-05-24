@@ -13,6 +13,6 @@ resource "helm_release" "jenkins" {
   namespace  = var.jenkins_namespace
   set{
     name   = "controller.servicePort"
-    value  = "${var.jenkins_port}"
+    value  = var.jenkins_port
   }
 }

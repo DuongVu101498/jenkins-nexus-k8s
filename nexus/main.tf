@@ -18,11 +18,11 @@ resource "helm_release" "nexus" {
   ]
   set{
     name    = "nexus.nexusPort"
-    value   = "${var.nexus_repo_port}"
+    value   = var.nexus_repo_port
   }
   set {
     name    = "nexus.docker.registries.port"
-    value   = "${var.docker_registry_port}"
+    value   = var.docker_registry_port
   }
  
   /*
