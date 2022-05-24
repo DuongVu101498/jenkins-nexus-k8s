@@ -14,13 +14,12 @@ resource "kubernetes_ingress_v1" "jenkins" {
         path {
           backend {
             service {
-              name = module.helm_jenkins.jenkins_svc_name
+              name = "${module.helm_jenkins.jenkins_svc_name}"
               port {
-                number = module.helm_jenkins.jenkins_svc_port
+                number = "${module.helm_jenkins.jenkins_svc_port}"
               }
             }
           }
-
           path = "/"
         }
         }
@@ -43,13 +42,12 @@ resource "kubernetes_ingress_v1" "nexus" {
         path {
           backend {
             service {
-              name = module.helm_nexus.jenkins_svc_name
+              name = "${module.helm_nexus.jenkins_svc_name}"
               port {
-                number = module.helm_nexus.jenkins_svc_port
+                number = "${module.helm_nexus.jenkins_svc_port}"
               }
             }
           }
-
           path = "/"
         }
         }
@@ -73,15 +71,15 @@ resource "kubernetes_ingress_v1" "localhost" {
         path {
           backend {
             service {
-              name = module.helm_jenkins.jenkins_svc_name
+              name = "${module.helm_jenkins.jenkins_svc_name}"
               port {
-                number = module.helm_jenkins.jenkins_svc_port
+                number = "${module.helm_jenkins.jenkins_svc_port}"
               }
-            }
-          path = "/"
-        }
+              }
+            path = "/"
+         }
         }
       }
     }
-}
+  }
 }
