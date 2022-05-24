@@ -4,5 +4,5 @@ output "jenkins_svc_name" {
 }
 output "jenkins_svc_port" {
   description = "the port number which jenkins service will expose in k8s"
-  value       =  var.jenkins_port
+  value       =  "${var.jenkins_port}"
 }
