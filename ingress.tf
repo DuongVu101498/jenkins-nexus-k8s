@@ -10,8 +10,8 @@ resource "kubernetes_ingress" "jenkins" {
       http {
         path {
           backend {
-            service_name = module.jenkins.jenkins_svc_name
-            service_port = module.jenkins.jenkins_svc_port
+            service_name = module.helm_jenkins.jenkins_svc_name
+            service_port = module.helm_jenkins.jenkins_svc_port
           }
 
           path = "/"
@@ -32,8 +32,8 @@ resource "kubernetes_ingress" "nexus" {
       http {
         path {
           backend {
-            service_name = module.nexus.nexus_repo_svc_name
-            service_port = module.nexus.nexus_repo_svc_port
+            service_name = module.helm_nexus.nexus_repo_svc_name
+            service_port = module.helm_nexus.nexus_repo_svc_port
           }
 
           path = "/"
@@ -55,8 +55,8 @@ resource "kubernetes_ingress" "localhost" {
       http {
         path {
           backend {
-            service_name = module.jenkins.jenkins_svc_name
-            service_port = module.jenkins.jenkins_svc_port
+            service_name = module.helm_jenkins.jenkins_svc_name
+            service_port = module.helm_jenkins.jenkins_svc_port
           }
 
           path = "/"
