@@ -1,0 +1,6 @@
+nexus:
+  docker:
+    enabled: true
+    registries:
+    - host: chart.local
+      secretName: registry-secret
