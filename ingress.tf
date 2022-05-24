@@ -1,4 +1,4 @@
-resource "kubernetes_ingress" "jenkins" {
+resource "kubernetes_ingress_v1" "jenkins" {
   metadata {
     name = "jenkins-ingress"
     namespace = kubernetes_namespace.jenkins.metadata.0.name
@@ -24,7 +24,7 @@ resource "kubernetes_ingress" "jenkins" {
     }
 }
 
-resource "kubernetes_ingress" "nexus" {
+resource "kubernetes_ingress_v1" "nexus" {
   metadata {
     name = "nexus-ingress"
     namespace = kubernetes_namespace.nexus.metadata.0.name
@@ -49,7 +49,7 @@ resource "kubernetes_ingress" "nexus" {
     }
 }
 
-resource "kubernetes_ingress" "localhost" {
+resource "kubernetes_ingress_v1" "localhost" {
   metadata {
     name = "localhost-ingress"
     namespace = "default"
