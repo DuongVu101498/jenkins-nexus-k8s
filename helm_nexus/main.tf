@@ -6,7 +6,7 @@ provider "helm" {
 
 resource "helm_release" "nexus" {
   name       = "sonatype-nexus"
-
+  wait       = false
   repository = "https://sonatype.github.io/helm3-charts/"
   chart      = "nexus-repository-manager"
   version    = "38.1.2"

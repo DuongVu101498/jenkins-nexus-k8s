@@ -6,7 +6,7 @@ provider "helm" {
 
 resource "helm_release" "jenkins" {
   name       = "jenkins"
-
+  wait       = false
   repository = "https://charts.jenkins.io"
   chart      = "jenkins"
   version    =  "4.1.1"
