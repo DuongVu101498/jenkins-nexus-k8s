@@ -14,9 +14,9 @@ resource "kubernetes_ingress_v1" "jenkins" {
         path {
           backend {
             service {
-              name = "${module.helm_jenkins.jenkins_svc_name}"
+              name = "jenkins"
               port {
-                number = "${module.helm_jenkins.jenkins_svc_port}"
+                number = var.jenkins_port
               }
             }
           }
@@ -42,9 +42,9 @@ resource "kubernetes_ingress_v1" "nexus" {
         path {
           backend {
             service {
-              name = "${module.helm_nexus.jenkins_svc_name}"
+              name = "sonatype-nexus-nexus-repository-manager"
               port {
-                number = "${module.helm_nexus.jenkins_svc_port}"
+                number = var.nexus_repo_port
               }
             }
           }
@@ -66,18 +66,18 @@ resource "kubernetes_ingress_v1" "localhost" {
 
   spec {
     rule {
-      host = var.jenkins_host
+      host = "localhost"
       http {
         path {
           backend {
             service {
-              name = "${module.helm_jenkins.jenkins_svc_name}"
+              name = "jenkins"
               port {
-                number = "${module.helm_jenkins.jenkins_svc_port}"
+                number = var.jenkins_port
               }
               }
-            path = "/"
-         }
+           }
+          path = "/"
         }
       }
     }
