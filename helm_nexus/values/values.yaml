@@ -4,3 +4,4 @@ nexus:
     registries:
     - host: chart.local
       secretName: registry-secret
+      port: 5000

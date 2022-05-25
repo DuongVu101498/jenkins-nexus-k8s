@@ -13,11 +13,12 @@ resource "helm_release" "nexus" {
   namespace  = var.nexus_namespace
   
   // values for helm chart
-  /*
+  
   values = [
     "${file("${path.module}/values/values.yaml")}"
   ]
-  */
+  
+  /*
   set{
     name    = "nexus.nexusPort"
     value   = var.nexus_repo_port
@@ -42,5 +43,5 @@ resource "helm_release" "nexus" {
     name    = "nexus.docker.registries.secretName"
     value   = "registry-secret"
   }
-  
+  */
 }
