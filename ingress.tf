@@ -71,7 +71,7 @@ resource "kubernetes_ingress_v1" "localhost" {
         path {
           backend {
             service {
-              name = "jenkins.default"
+              name = "jenkins.${kubernetes_namespace.jenkins.metadata.0.name}"
               port {
                 number = var.jenkins_port
               }
