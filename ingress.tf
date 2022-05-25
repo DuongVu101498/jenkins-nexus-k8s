@@ -58,7 +58,7 @@ resource "kubernetes_ingress_v1" "nexus" {
 resource "kubernetes_ingress_v1" "localhost" {
   metadata {
     name = "localhost-ingress"
-    namespace = "default"
+    namespace =  kubernetes_namespace.jenkins.metadata.0.name
     annotations = {
       "kubernetes.io/ingress.class" = "nginx"
     }
@@ -71,7 +71,7 @@ resource "kubernetes_ingress_v1" "localhost" {
         path {
           backend {
             service {
-              name = "jenkins.${kubernetes_namespace.jenkins.metadata.0.name}"
+              name = "jenkins"
               port {
                 number = var.jenkins_port
               }
