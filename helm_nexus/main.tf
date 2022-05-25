@@ -19,14 +19,14 @@ resource "helm_release" "nexus" {
   ]
   */
   set{
+    type    = string
     name    = "nexus.nexusPort"
     value   = var.nexus_repo_port
-    type    = string
   }
   set {
+    type    = string
     name    = "nexus.docker.registries.port"
     value   = var.docker_registry_port
-    type    = string
   }
  
   
