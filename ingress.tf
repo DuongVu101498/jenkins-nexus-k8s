@@ -16,7 +16,7 @@ resource "kubernetes_ingress_v1" "jenkins" {
             service {
               name = module.helm_jenkins.jenkins_svc_name
               port {
-                number = module.helm_jenkins.jenkins_port
+                number = module.helm_jenkins.jenkins_svc_port
               }
             }
           }
