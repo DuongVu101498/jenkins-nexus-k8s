@@ -1,7 +1,8 @@
 nexus:
+  nexusPort: ${nexusPort}
   docker:
     enabled: true
     registries:
     - host: chart.local
       secretName: registry-secret
-      port: 5000
+      port: ${port}

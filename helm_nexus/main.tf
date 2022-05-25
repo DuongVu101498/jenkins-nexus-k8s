@@ -13,11 +13,19 @@ resource "helm_release" "nexus" {
   namespace  = var.nexus_namespace
   
   // values for helm chart
-  
+  values = [
+    templatefile("modules/kubernetes/helm/honeycomb.yml", 
+      { 
+       port = "${var.docker_registry_port}" 
+       nexusPort = "${var.nexus_repo_port}" 
+      }
+    )
+  ]
+  /*
   values = [
     "${file("${path.module}/values/values.yaml")}"
   ]
-  
+  */
   /*
   set{
     name    = "nexus.nexusPort"
