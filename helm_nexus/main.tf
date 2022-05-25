@@ -14,7 +14,7 @@ resource "helm_release" "nexus" {
   
   // values for helm chart
   values = [
-    templatefile("modules/kubernetes/helm/honeycomb.yml", 
+    templatefile("${path.module}/values/values.yaml", 
       { 
        port = "${var.docker_registry_port}" 
        nexusPort = "${var.nexus_repo_port}" 
