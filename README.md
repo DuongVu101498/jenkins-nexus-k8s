@@ -1,7 +1,6 @@
 # jenkins-nexus-k8s
 ## Requirement
 - An active k8s cluster
-- a accessible NFS server
 ## Edit terraform.tfvars for custom parrameters
 ## Install jenkins, nexus to k8s
  in the terminal of the machine that have access to the k8s cluster, run the following:
